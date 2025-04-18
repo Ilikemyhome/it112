@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Fortune Teller{% endblock %}
+
+{% block header %}Welcome to my fortune teller!{% endblock %}
+
+{% block content %}
+    <p>Welcome! Enter your name so I can tell you your fortune!!</p>
+
+    <form action="{{ url_for('home')}}" method="post">
+
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="last_name">Enter your last name:</label>
+        <input type="text" id="last_name" name="last_name" required>
+        <label for="color">Choose a color:</label>
+        <select name="color" id="color">
+            <option value="red">Red</option>
+            <option value="yellow">Yellow</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+        </select>
+        
+        <label for="number">Choose a number:</label>
+        <select name="number" id="number">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+    <p>Or click <a href="{{ url_for('about') }}">here</a> to learn more about me</p>
+    
+{% endblock %}
