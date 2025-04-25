@@ -10,6 +10,9 @@
 
     {% for car in cars %}
         <h3>{{ car.model }}</h3>
+        <li>
+            <a href="{{ url_for('car_details', car_id=car.id) }}">View Details</a>
+        </li>
         <p>Make: {{ car.make}}</p>
         <p>Year: {{ car.year }}</p>
         <p>Color: {{ car.color }}</p>

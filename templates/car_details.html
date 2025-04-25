@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Car Details{% endblock %}
+
+{% block header %}{{car.model}} details{% endblock %}
+
+{% block content %}
+    
+    
+    <p><strong>Make:</strong> {{ car.make }}</p>
+    <p><strong>Year:</strong> {{ car.year }}</p>
+    <p><strong>Color:</strong> {{ car.color }}</p>
+   
+    
+    <a href="{{ url_for('cars') }}">Back to My Cars</a>
+{% endblock %}

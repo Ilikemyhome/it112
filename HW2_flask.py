@@ -13,6 +13,11 @@ def cars():
     
     return render_template("cars.html", cars = Dream_Cars.query.all())
 
+@app.route("/cars/<int:car_id>")
+def car_details(car_id):
+    car = Dream_Cars.query.get(car_id)
+    return render_template("car_details.html", car=car)
+
 @app.route("/", methods=["GET", "POST"])
 def home():
     if request.method == "POST":
