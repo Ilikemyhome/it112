@@ -1,9 +1,17 @@
 from flask import Flask, render_template, request
+from HW5 import Dream_Cars, tables
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cars.db'
+tables.init_app(app)
 
 
 from flask import redirect, url_for
+
+@app.route("/cars")
+def cars():
+    
+    return render_template("cars.html", cars = Dream_Cars.query.all())
 
 @app.route("/", methods=["GET", "POST"])
 def home():

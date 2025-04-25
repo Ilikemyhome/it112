@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}My Cars{% endblock %}
+
+{% block header %}My Dream Cars!!{% endblock %}
+
+{% block content %}
+    <h2>My Cars: </h2>
+    
+
+    {% for car in cars %}
+        <h3>{{ car.model }}</h3>
+        <p>Make: {{ car.make}}</p>
+        <p>Year: {{ car.year }}</p>
+        <p>Color: {{ car.color }}</p>
+        
+    {% endfor %}
+    <hr>
+    <p>Thank you for visiting my car page!</p>
+    <p>If you'd like to go back to the home page, click <a href="{{url_for ('home')}}">here</a></p>
+{% endblock %}
