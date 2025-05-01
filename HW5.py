@@ -23,6 +23,15 @@ class Dream_Cars(tables.Model):
 
     def __repr__(self):
         return f"<Dream car {self.id}: {self.make} {self.model} ({self.year}) - {self.color}>\n"
+    
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'make': self.make,
+            'model': self.model,
+            'year': self.year,
+            'color': self.color
+        }
 
 with app.app_context():
     

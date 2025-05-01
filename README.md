@@ -7,3 +7,6 @@
 
 4/25/25 - added the sqlalchemy and added some of my favorite cars
     update - Realized i needed a link that displayed info about the car so i fixed that
+
+5/1/25
+To view the cars make sure you run data.py to make sure everything runs smoothly

@@ -1,12 +1,46 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 from HW5 import Dream_Cars, tables
+
+
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cars.db'
 tables.init_app(app)
 
 
-from flask import redirect, url_for
+# HW6 converting data to JSON format
+
+
+@app.route("/api/cars", methods=["GET"])
+def get_data():
+    data = Dream_Cars.query.all()
+    data_list = [item.to_dict() for item in data]
+    return jsonify(data_list)
+
+
+@app.route("/api/cars", methods=["POST"])
+def add_car():
+    try:
+        data = request.get_json()
+
+        if not all(key in data for key in ("make", "model", "year", "color")):
+            return jsonify({"error": "Missing data"}), 400
+        
+        new_car = Dream_Cars(
+            make=data["make"],
+            model=data["model"],
+            year=data["year"],
+            color=data["color"]
+        )
+
+        tables.session.add(new_car)
+        tables.session.commit()
+        return jsonify({"message": "Car added successfully!"}), 201
+    
+    except Exception as e:
+        return jsonify({"error":"Failed to add car"}), 500
+
 
 @app.route("/cars")
 def cars():
@@ -81,4 +115,7 @@ def about():
 
 
 if __name__ == "__main__":
+    
+
+
     app.run(debug=True)
