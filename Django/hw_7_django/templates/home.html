@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block header %}
+
+    {% if user_name %}
+        Welcome, {{ user_name }}!
+    {% else %}
+        Welcome, Guest!
+    {% endif %}
+    
+{% endblock %}
+
+{% block content %}
+    <p>Enjoy this pciture of Koro-Sensei</p>
+
+    {% load static %}
+    <img src="{% static 'korosensei.jpg' %}" alt="korosensei">
+{% endblock %}
