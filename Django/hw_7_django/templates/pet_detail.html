@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Pet Details{% endblock %}
+
+{% block header %}
+    <h1>Pet Details!!</h1>
+{% endblock %}
+
+{% block content %}
+    <h2>{{ pet.name }}</h2>
+    <p>Type: {{ pet.get_pet_type_display }}</p>
+    <p>Color: {{ pet.color }}</p>
+    <p>Age: {{ pet.age }} years</p>
+    
+
+
+    <a href="{% url 'pet_list' %}">Back to Pet List</a>
+{% endblock %}

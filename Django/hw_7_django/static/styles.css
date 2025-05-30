@@ -2,17 +2,35 @@
 body {
     background: #f3f77f;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
+
 
 h1 {
     color: #313192;
     margin-top: 2em;
+    letter-spacing: 1px;
 }
 
 p {
     color: #000000;
     font-size: 1.2em;
     margin-bottom: 1.5em;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 500px;
+    margin: 2em auto;
+}
+
+li {
+    text-align: left;
+    margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 8px;
+   
 }
 
 img {
