@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hw_7_django',
     'pets',
+    
 ]
 
 MIDDLEWARE = [

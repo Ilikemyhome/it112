@@ -17,11 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import home
-from pets.views import pet_list, pet_detail
+from pets.views import pet_list, pet_detail, api_all_pets, api_single_pet, api_create_pet
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('pets/', pet_list, name='pet_list'),
     path('pets/<int:pet_id>/', pet_detail, name='pet_detail'),
+
+    path('api/pets/', api_all_pets, name='api_all_pets'),
+    path('api/pet/', api_single_pet, name='api_single_pet'),
+    path('api/create_pet/', api_create_pet, name='api_create_pet'),
 ]
