@@ -10,3 +10,9 @@
 
 5/1/25
 To view the cars make sure you run data.py to make sure everything runs smoothly
+
+
+http://127.0.0.1:8000/?user_name="YOUR NAME!"
+http://127.0.0.1:8000/api/pet/?id=0 ->views pet with id of 0
+http://127.0.0.1:8000/api/pets shows list of all pets
+http://127.0.0.1:8000/api/create_pet/ -creates pet postman recommended

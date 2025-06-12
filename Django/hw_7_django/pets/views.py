@@ -49,3 +49,8 @@ def api_create_pet(request):
         except Exception as e:
             return JsonResponse({'success': False, 'error': str(e)}, status=200, content_type='application/json')
     return JsonResponse({'error': 'POST required'}, status=200, content_type='application/json')
+
+
+def pet_list(request):
+    pets = Pets.objects.all()
+    return render(request, 'pet_list.html', {'pets': pets})
